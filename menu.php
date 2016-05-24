@@ -8,6 +8,11 @@
 	<li ><a href='exportaciones_del.php'>Eliminar</a></li>
 	</ul>
 </li>
+<li class='has-sub'><a href='#'>Cuenta</a>
+	<ul> 
+	<li ><a href='usuario_upd.php'>Cambiar Contraseña</a></li>
+	</ul>
+</li>
 <li><a href='#'>Informar problemas</a></li>
 </ul>
 </div>

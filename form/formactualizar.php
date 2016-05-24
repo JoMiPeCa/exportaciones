@@ -20,6 +20,3 @@ $oProducto = new Producto();
         <td><input type="submit" value="Actualizar"></td>
     </tr>
 </form>
-
-
-</form>

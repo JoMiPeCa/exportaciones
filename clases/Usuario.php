@@ -14,8 +14,38 @@ class Usuario{
 	public function getNombre(){
 		return $this->snombre;
 	}
+        function getSusuario() {
+            return $this->susuario;
+        }
+        function setSusuario($susuario) {
+            $this->susuario = $susuario;
+        }
 
-	public function getIdacceso(){
+        function setSclave($sclave) {
+            $this->sclave = $sclave;
+        }
+
+                function getNidacceso() {
+            return $this->nidacceso;
+        }
+
+        function getSnombre() {
+            return $this->snombre;
+        }
+
+        function setNidacceso($nidacceso) {
+            $this->nidacceso = $nidacceso;
+        }
+
+        function setSnombre($snombre) {
+            $this->snombre = $snombre;
+        }
+
+        function getSclave() {
+            return $this->sclave;
+        }
+
+        public function getIdacceso(){
 		return $this->nidacceso;
 	}
 	
@@ -40,7 +70,7 @@ class Usuario{
 	function VerificaAcceso(){
 		$db=dbconnect();
 		/*Definici�n del query que permitira ingresar un nuevo registro*/
-		$sqlsel="select nombre from acceso
+		$sqlsel="select nombre,idacceso from acceso
 		where nomusuario=:usr and pwdusuario=:pwd";
 
 		/*Preparaci�n SQL*/
@@ -53,7 +83,10 @@ class Usuario{
 		$datos=$querysel->execute();
 
 		if ($querysel->rowcount()==1){
-			$this->snombre=$querysel->fetchColumn();
+                        $registro = $querysel->fetch();
+			$this->snombre=$registro["nombre"];
+			$this->nidacceso=$registro["idacceso"];
+                        
 			
 			return true;
 		}
@@ -74,7 +107,7 @@ class Usuario{
 		$querysel=$db->prepare($sqlupd);
 	
 		/*Asignaci�n de parametros utilizando bindparam*/
-		$querysel->bindParam(':pwd',md5($snewpwd));
+		$querysel->bindParam(':pwd',$snewpwd);
 		$querysel->bindParam(':id',$this->nidacceso);
 		
 

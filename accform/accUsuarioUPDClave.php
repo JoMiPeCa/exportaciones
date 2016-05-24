@@ -1,13 +1,13 @@
 <?php
 include("../librerias.php");
 
-//$newpewd=$_POST['newpwd'];
-$newpewd=$_GET['newpwd'];
+$newpewd=$_POST['newpwd'];
+//$newpewd=$_GET['newpwd'];
 
 session_start();
 if (!isset($_SESSION["oUsuario"])){
 	?>
-<!-- Reenvio a la página principal-->
+<!-- Reenvio a la pï¿½gina principal-->
 <script>
 	document.location.href="index.php";
 </script>
